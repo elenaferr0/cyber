@@ -25,3 +25,14 @@ log.success(p.recvline_regex(rb".*{.*}.*").decode("ascii"))
   - u unit size; one of b(individual bytes), h (halfwords = 2B), w (words = 4B), g (giant words = 8B)
   - f printing format (any print format) or s (s null-terminated string) i (machine instructions)
 Ex: `x/168x $sp' (4 byte chunks by default) $sp = stack pointer, $rip = instruction pointer
+
+# Stack representation
+```
++---------------+ <- SP
+|     locals    |
++---------------+ <- BP
+|       BP      |
++---------------+
+|    ret add    |
++---------------+
+```
