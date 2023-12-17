@@ -18,7 +18,7 @@ log.success(p.recvline_regex(rb".*{.*}.*").decode("ascii"))
 # GDB commands
 - `r` run
 - `c` continue
-- `b <function_name>` breakpoint
+- `b <function_name>` breakpoint or `b <linenumber>`
 - `file <file>` load file
 - `x/Nuf expr`: examine memory at address expr
   - N how many units to display
